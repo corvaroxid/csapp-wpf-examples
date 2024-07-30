@@ -1,0 +1,26 @@
+﻿<Window x:Class="CSApp.WPF.Part1.Example1.BasicWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSApp.WPF.Part1.Example1.BasicWPF"
+        mc:Ignorable="d"
+        Title="BasicWPFWindow" Height="350" Width="500" Closing="OnWindowClosing">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="setButton" Content="Set Name" HorizontalAlignment="Left" Margin="67,44,0,0" VerticalAlignment="Top" Click="SetButtonClick"/>
+        <Button x:Name="returnButton" Content="Return Name" HorizontalAlignment="Left" Margin="67,96,0,0" VerticalAlignment="Top" Click="ReturnButtonClick"/>
+        <TextBox x:Name="setText" HorizontalAlignment="Left" Margin="270,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SetTextChanged"/>
+        <Label x:Name="lbl" HorizontalAlignment="Center" VerticalAlignment="Top">Start</Label>
+        <Label x:Name="returnLabel" Content="" HorizontalAlignment="Left" Margin="270,96,0,0" VerticalAlignment="Top"/>
+        <Menu HorizontalAlignment="Left" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" Click="MenuItemClick"></MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+
+</Window>
