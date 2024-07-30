@@ -22,12 +22,16 @@ namespace CSApp.WPF.Part1.Example1.BasicWPF
     {
         private bool isDataDirty = false;
 
+        public ChildWindow childWindow { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
             lbl.Content = "Common content";
             setButton.IsEnabled = false;
             returnButton.IsEnabled = false;
+            Top = 25;
+            Left = 25;
         }
 
         private void SetButtonClick(object sender, RoutedEventArgs e)
@@ -100,6 +104,20 @@ namespace CSApp.WPF.Part1.Example1.BasicWPF
         private void MenuItemClick(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void OpenChildWindowButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (childWindow == null) 
+            {
+                childWindow = new ChildWindow();
+                childWindow.Owner = this;
+            }
+
+            var location = openChildWindowButton.PointToScreen(new Point(0, 0));
+            childWindow.Left = location.X + openChildWindowButton.Width;
+            childWindow.Top = location.Y;
+            childWindow.Show();
         }
     }
 }
