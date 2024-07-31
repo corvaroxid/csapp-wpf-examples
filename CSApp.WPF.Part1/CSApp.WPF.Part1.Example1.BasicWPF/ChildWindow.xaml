@@ -16,9 +16,9 @@
             <Setter Property="MinHeight" Value="50"/>
             <Setter Property="MinWidth" Value="50"/>
             <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
                             <Rectangle>
                                 <Rectangle.Fill>
                                     <RadialGradientBrush>
@@ -31,7 +31,7 @@
                                 </Rectangle.LayoutTransform>
                             </Rectangle>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Grid>
+                        </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Trigger.EnterActions>
@@ -49,7 +49,7 @@
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
-            </Setter.Value>
+                </Setter.Value>
             </Setter>
             <Style.Triggers>
                 <EventTrigger RoutedEvent="Mouse.MouseEnter">
@@ -76,11 +76,20 @@
                 </EventTrigger>
             </Style.Triggers>
         </Style>
+        <local:StudentList x:Key="studentCollection"/>
+        <local:BoolToBrushConverter x:Key="boolToBrushConverter" />
+        <DataTemplate x:Key="listBoxTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Rectangle Fill="{Binding Path=IsEnrolled, Converter={StaticResource boolToBrushConverter}}" Height="10" Width="10" Margin="0,0,5,0" />
+                <TextBlock Text="{Binding Path=StudentName}" />
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="152,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" />
         <Button Content="Button" HorizontalAlignment="Left" Height="3" Width="10" Margin="46,51,0,0" VerticalAlignment="Top" Click="ButtonClick" Template="{DynamicResource customButtonTemplate}"/>
         <Button Content="Button" HorizontalAlignment="Left" Height="3"  Width="10" Margin="50,131,0,0" VerticalAlignment="Top"/>
-
+        <ListBox Height="60" HorizontalAlignment="Left" Margin="241,33,0,0" Name="listBox1" VerticalAlignment="Top" Width="250" ItemsSource="{Binding Source={StaticResource studentCollection}}"  DisplayMemberPath="FullStudentData"/>
+        <ListBox Height="60" HorizontalAlignment="Left" Margin="244,103,0,0" Name="listBox2" VerticalAlignment="Top" Width="250" ItemsSource="{Binding Source={StaticResource studentCollection}}" ItemTemplate="{StaticResource listBoxTemplate}" />
     </Grid>
 </Window>
