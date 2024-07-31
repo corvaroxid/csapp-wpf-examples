@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSApp.WPF.Part2.Example1.RoutedEventsWPF", "CSApp.WPF.Part2.Example1.RoutedEventsWPF\CSApp.WPF.Part2.Example1.RoutedEventsWPF.csproj", "{AD4A428B-DB47-4547-97B5-A2DD6E9A0A45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSApp.WPF.Part2.Example2.StackRoutedEventsWPF", "CSApp.WPF.Part2.Example2.StackRoutedEventsWPF\CSApp.WPF.Part2.Example2.StackRoutedEventsWPF.csproj", "{927B62AB-141E-46B2-A444-0DCACC6F6750}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD4A428B-DB47-4547-97B5-A2DD6E9A0A45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4A428B-DB47-4547-97B5-A2DD6E9A0A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4A428B-DB47-4547-97B5-A2DD6E9A0A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4A428B-DB47-4547-97B5-A2DD6E9A0A45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{927B62AB-141E-46B2-A444-0DCACC6F6750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{927B62AB-141E-46B2-A444-0DCACC6F6750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{927B62AB-141E-46B2-A444-0DCACC6F6750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{927B62AB-141E-46B2-A444-0DCACC6F6750}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4188CF61-7AC9-4565-A533-8788D396EB0C}
+	EndGlobalSection
+EndGlobal

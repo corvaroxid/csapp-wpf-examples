@@ -21,6 +21,7 @@ namespace CSApp.WPF.Part1.Example1.BasicWPF
     public partial class MainWindow : Window
     {
         private bool isDataDirty = false;
+        private string nameFile = "username.txt";
 
         public ChildWindow childWindow { get; set; }
 
@@ -34,12 +35,12 @@ namespace CSApp.WPF.Part1.Example1.BasicWPF
             Left = 25;
         }
 
-        private void SetButtonClick(object sender, RoutedEventArgs e)
+        private void HandleSetButton()
         {
             System.IO.StreamWriter sw = null;
             try
             {
-                sw = new System.IO.StreamWriter("username.txt");
+                sw = new System.IO.StreamWriter(nameFile);
                 sw.WriteLine(setText.Text);
             }
             catch (Exception ex)
@@ -52,16 +53,17 @@ namespace CSApp.WPF.Part1.Example1.BasicWPF
                 { 
                     sw.Close();
                 }
+                returnButton.IsEnabled = true;
                 isDataDirty = false;
             }
         }
 
-        private void ReturnButtonClick(object sender, RoutedEventArgs e)
+        private void HandleReturnButton()
         {
             System.IO.StreamReader streamReader = null;
             try
             {
-                using (streamReader = new System.IO.StreamReader("username.txt")) 
+                using (streamReader = new System.IO.StreamReader(nameFile)) 
                 {
                     returnLabel.Content = "Hello!" + streamReader.ReadToEnd();
                 }
@@ -118,6 +120,28 @@ namespace CSApp.WPF.Part1.Example1.BasicWPF
             childWindow.Left = location.X + openChildWindowButton.Width;
             childWindow.Top = location.Y;
             childWindow.Show();
+        }
+
+        private void GridClick(object sender, RoutedEventArgs e)
+        {
+            FrameworkElement feSource = e.Source as FrameworkElement;
+            try
+            {
+                switch (feSource.Name) 
+                { 
+                    case "setButton":
+                        HandleSetButton();
+                        break;
+                    case "returnButton":
+                        HandleReturnButton();
+                        break;
+                }
+                e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
