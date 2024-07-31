@@ -4,10 +4,18 @@
              xmlns:local="clr-namespace:CSApp.WPF.Part1.Example1.BasicWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <LinearGradientBrush x:Key="gradientStyle" StartPoint="0,0" EndPoint="0,1">
+        <!-- <LinearGradientBrush x:Key="gradientStyle" StartPoint="0,0" EndPoint="0,1">
             <GradientStop Color="Gray" Offset="0" />
             <GradientStop Color="Green" Offset="0.5" />
             <GradientStop Color="LawnGreen" Offset="1" />
-        </LinearGradientBrush>
+        </LinearGradientBrush> -->
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/MetroDark/MetroDark.MSControls.Core.Implicit.xaml" />
+                <ResourceDictionary Source="Themes/MetroDark/MetroDark.MSControls.Toolkit.Implicit.xaml" />
+                <ResourceDictionary Source="Resources/CustomResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

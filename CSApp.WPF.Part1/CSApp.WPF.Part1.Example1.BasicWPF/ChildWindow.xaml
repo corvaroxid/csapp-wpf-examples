@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSApp.WPF.Part1.Example1.BasicWPF"
         mc:Ignorable="d"
-        Title="ChildWindow" Height="450" Width="800" Background="{StaticResource gradientStyle}" Closing="ChildWindowClosing" Closed="ChildWindowClosed">
+        Title="ChildWindow" 
+        Height="450" Width="800" 
+        Closing="ChildWindowClosing"
+        Closed="ChildWindowClosed">
+    <!-- Background="{StaticResource gradientStyle}" -->
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -75,7 +79,7 @@
     </Window.Resources>
     <Grid>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="152,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" />
-        <Button Content="Button" HorizontalAlignment="Left" Height="3" Width="10" Margin="46,51,0,0" VerticalAlignment="Top" Click="ButtonClick" />
+        <Button Content="Button" HorizontalAlignment="Left" Height="3" Width="10" Margin="46,51,0,0" VerticalAlignment="Top" Click="ButtonClick" Template="{DynamicResource customButtonTemplate}"/>
         <Button Content="Button" HorizontalAlignment="Left" Height="3"  Width="10" Margin="50,131,0,0" VerticalAlignment="Top"/>
 
     </Grid>
