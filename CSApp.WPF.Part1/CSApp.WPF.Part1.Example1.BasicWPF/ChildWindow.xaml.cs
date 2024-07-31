@@ -57,7 +57,10 @@ namespace CSApp.WPF.Part1.Example1.BasicWPF
 
         private void ChildWindowClosed(object sender, EventArgs e)
         {
-            _parentWindow.childWindow = null;
+            if (_parentWindow != null)
+            { 
+                _parentWindow.childWindow = null;
+            }
         }
 
         private void PrintLogFile()

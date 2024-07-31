@@ -33,6 +33,22 @@ namespace CSApp.WPF.Part1.Example1.BasicWPF
             returnButton.IsEnabled = false;
             Top = 25;
             Left = 25;
+
+            CommandBinding abinding = new CommandBinding();
+            abinding.Command = CustomCommands.Launch;
+            abinding.Executed += new ExecutedRoutedEventHandler(HandleLaunchCommand);
+            abinding.CanExecute += new CanExecuteRoutedEventHandler(SetCanExecute);
+            this.CommandBindings.Add(abinding);
+        }
+
+        private void SetCanExecute(object sender, CanExecuteRoutedEventArgs eventArgs)
+        {
+            eventArgs.CanExecute = (bool)check.IsChecked;
+        }
+
+        private void HandleLaunchCommand(object sender, ExecutedRoutedEventArgs eventArgs)
+        {
+            OpenChildWindow();
         }
 
         private void HandleSetButton()
@@ -103,14 +119,14 @@ namespace CSApp.WPF.Part1.Example1.BasicWPF
             }
         }
 
-        private void MenuItemClick(object sender, RoutedEventArgs e)
+        private void ExitMenuItemClick(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void OpenChildWindowButtonClick(object sender, RoutedEventArgs e)
+        private void OpenChildWindow() 
         {
-            if (childWindow == null) 
+            if (childWindow == null)
             {
                 childWindow = new ChildWindow();
                 childWindow.Owner = this;
@@ -142,6 +158,11 @@ namespace CSApp.WPF.Part1.Example1.BasicWPF
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void LaunchMenuItemClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

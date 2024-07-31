@@ -5,10 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSApp.WPF.Part1.Example1.BasicWPF"
         mc:Ignorable="d"
-        Title="ChildWindow" Height="450" Width="800" Closing="ChildWindowClosing" Closed="ChildWindowClosed">
+        Title="ChildWindow" Height="450" Width="800" Background="{StaticResource gradientStyle}" Closing="ChildWindowClosing" Closed="ChildWindowClosed">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="MinWidth" Value="50"/>
+            <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                            <Rectangle>
+                                <Rectangle.Fill>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="Blue" Offset="0" />
+                                        <GradientStop Color="BlueViolet" Offset="1" />
+                                    </RadialGradientBrush>
+                                </Rectangle.Fill>
+                                <Rectangle.LayoutTransform>
+                                    <RotateTransform Angle="45" />
+                                </Rectangle.LayoutTransform>
+                            </Rectangle>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Name="Storyboard">
+                                        <Storyboard Duration="0:0:1">
+                                            <DoubleAnimation Storyboard.TargetProperty="FontSize" To="20" />
+                                            <DoubleAnimation Storyboard.TargetProperty="Width" To="100"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Height" To="100" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <StopStoryboard BeginStoryboardName="Storyboard" />
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+            </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard Duration="0:0:1">
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="20" />
+                                <DoubleAnimation Storyboard.TargetProperty="Width" To="100"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Height" To="100" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard Duration="0:0:1">
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="10" />
+                                <DoubleAnimation Storyboard.TargetProperty="Width" To="50"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Height" To="50" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="152,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="80"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="46,51,0,0" VerticalAlignment="Top" Width="57" Click="ButtonClick"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="152,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" />
+        <Button Content="Button" HorizontalAlignment="Left" Height="3" Width="10" Margin="46,51,0,0" VerticalAlignment="Top" Click="ButtonClick" />
+        <Button Content="Button" HorizontalAlignment="Left" Height="3"  Width="10" Margin="50,131,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
