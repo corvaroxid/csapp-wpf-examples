@@ -1,4 +1,4 @@
-# csapp-wpf-examples
+# Examples of use Windows Presentation Foundation(.NET)
 
 ### Part 1
 * [Basic use of WPF](CSApp.WPF.Part1/CSApp.WPF.Part1.Example1.BasicWPF)
